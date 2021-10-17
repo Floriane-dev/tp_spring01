@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- Ajout de balises bean et autres -->
+    <!--
+        Instanciation de la classe Calculatrice dans la variable cal01
+        l'id est unique dans le fichers des BEANS
+    -->
+    <context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
+
+    <bean id="cal01" class="main.java.spring01.beans.Calculatrice">
+        <property name="valeura" value="${valeura}"></property>
+        <property name="valeurb" value="${valeurb}"></property>
+    </bean>
+
+</beans>

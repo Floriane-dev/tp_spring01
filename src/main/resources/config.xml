@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- pour utiliser les annotations -->
+    <context:annotation-config />
+
+    <!-- Charge toutes les classes ou/et interfaces
+    ayant des annotations comme @Service @Controller ..
+    liées Spring -->
+    <context:component-scan
+            base-package="main.java.myapp.imp" />
+
+    <!-- logger sur Stderr (logger par défaut)-->
+    <!-- <bean id="stderrLogger"
+    class="main.java.myapp.imp.StderrLogger"
+     />-->
+
+    <!-- logger sur /tmp/myapp.log -->
+    <bean id="fileLogger"
+          class="main.java.myapp.imp.BeanFileLogger">
+        <property name="fileName">
+            <value>tmp/myapp.log</value>
+        </property>
+    </bean>
+    <!-- calculatrice qui trace sur Stderr -->
+    <!--
+    <bean id="calculator"
+    class="main.java.myapp.imp.SimpleCalculator">
+    </bean>-->
+
+</beans>
